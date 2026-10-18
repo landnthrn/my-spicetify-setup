@@ -1,0 +1,1084 @@
+.os-scrollbar {
+  --os-handle-border-radius: 16px !important;
+  --os-size: 8px !important;
+}
+
+.Root__top-container {
+  background: linear-gradient(
+    180deg,
+    var(--spice-sidebar-alt) 0%,
+    var(--spice-sidebar) 100%
+  );
+  overflow: hidden;
+  grid-template-areas:
+    "top-banner global-nav global-nav"
+    "left-sidebar main-view now-playing-bar"
+    "left-sidebar main-view right-sidebar";
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
+}
+
+.Root__top-container > :has([data-testid="now-playing-bar"]) {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 8px;
+  overflow: visible !important;
+}
+
+.Root__globalNav {
+  background-color: transparent !important;
+}
+
+.main-topBar-container,
+.main-topBar-background,
+.main-topBar-overlay,
+.Root__top-bar,
+[data-testid="topbar"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  --background-base: transparent !important;
+}
+
+
+.Root__top-container > :has(.main-view-container) {
+  background-color: transparent !important;
+}
+
+.Root__top-container > :has(.YourLibraryX),
+.Root__top-container > :has(.YourLibraryX) > *,
+.Root__top-container > :has(.YourLibraryX) *:has(.YourLibraryX),
+.YourLibraryX {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.Root__top-container
+  [aria-label="Now playing view"]
+  > div
+  > div:has(button[aria-label*="Now Playing view"], button[aria-label*="ahora suena"]) {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.Root__top-container
+  [aria-label="Now playing view"]
+  > div
+  > div:has(button[aria-label*="Now Playing view"], button[aria-label*="ahora suena"])
+  > div:has(a) {
+  padding-inline-end: 72px;
+  box-sizing: border-box;
+}
+
+.Root__right-sidebar-fauxMainViewEnd > *,
+div:has(> div > div > aside#Desktop_PanelContainer_Id) > :first-child > * {
+  background-color: transparent !important;
+}
+
+.Root__top-container > :has(aside[aria-label*="Now playing view"], aside[aria-label*="ahora suena"])::before,
+.Root__top-container > :has(.LayoutResizer__resize-bar)::before {
+  background-color: transparent !important;
+}
+
+/* Right sidebar panel behavior: smooth resizing, transparent when collapsed */
+.Root__top-container > :has(aside[aria-label*="Now playing view"], aside[aria-label*="ahora suena"], aside#Desktop_PanelContainer_Id) {
+  min-width: 0 !important;
+}
+
+aside[aria-label*="Now playing view"],
+aside[aria-label*="ahora suena"],
+aside#Desktop_PanelContainer_Id {
+  min-width: 220px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Collapsed sidebar: completely transparent, eliminate ugly black vertical slabs */
+aside:has(button[aria-label*="Expand"], button[aria-label*="Expandir"], button[aria-label*="Mostrar"]),
+aside:has(button[aria-label*="Expand"], button[aria-label*="Expandir"], button[aria-label*="Mostrar"]) > div,
+.Root__right-sidebar:has(button[aria-label*="Expand"], button[aria-label*="Expandir"], button[aria-label*="Mostrar"]),
+.Root__right-sidebar:has(button[aria-label*="Expand"], button[aria-label*="Expandir"], button[aria-label*="Mostrar"]) > div,
+body.starrynight-sidebar-collapsed aside,
+body.starrynight-sidebar-collapsed aside > div,
+.Root__top-container aside[style*="width: 72px"],
+.Root__top-container aside[style*="width: 60px"],
+.Root__top-container aside[style*="width: 64px"],
+.Root__top-container aside[style*="width: 80px"],
+.Root__top-container aside[style*="width: 72px"] > div,
+.Root__top-container aside[style*="width: 60px"] > div,
+.Root__top-container aside[style*="width: 64px"] > div,
+.Root__top-container aside[style*="width: 80px"] > div {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Floating clean expander button when collapsed */
+aside button[aria-label*="Expand"],
+aside button[aria-label*="Expandir"],
+aside button[aria-label*="Mostrar"] {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  margin: 16px auto !important;
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+aside button[aria-label*="Expand"]:hover,
+aside button[aria-label*="Expandir"]:hover,
+aside button[aria-label*="Mostrar"]:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Keep all original buttons on the side 100% visible and solid (no faint transparency) */
+aside button,
+aside [role="button"],
+.Root__top-container aside button,
+.Root__top-container [data-testid="now-playing-bar"] button:not([data-testid="control-button-playpause"]):not([data-testid="cover-art-button"]),
+.main-nowPlayingBar-extraControls button,
+.player-controls__buttons button:not([data-testid="control-button-playpause"]),
+button[aria-label*="Estás escuchando"],
+button[aria-label*="Now Playing"],
+button[aria-label*="Now playing"],
+button[aria-label*="ahora suena"],
+button[aria-label*="Expand"],
+button[aria-label*="Expandir"],
+button[aria-label*="Ocultar"] {
+  opacity: 1 !important;
+  color: #ffffff !important;
+  visibility: visible !important;
+}
+
+aside button svg,
+aside [role="button"] svg,
+.Root__top-container aside button svg,
+.Root__top-container [data-testid="now-playing-bar"] button:not([data-testid="control-button-playpause"]):not([data-testid="cover-art-button"]) svg,
+.main-nowPlayingBar-extraControls button svg,
+.player-controls__buttons button:not([data-testid="control-button-playpause"]) svg,
+button[aria-label*="Estás escuchando"] svg,
+button[aria-label*="Now Playing"] svg,
+button[aria-label*="Now playing"] svg,
+button[aria-label*="ahora suena"] svg,
+button[aria-label*="Expand"] svg,
+button[aria-label*="Expandir"] svg,
+button[aria-label*="Ocultar"] svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+aside button:hover,
+aside [role="button"]:hover,
+.main-nowPlayingBar-extraControls button:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+}
+
+/* Right sidebar now playing card transparency ("el negro nada más", excluding lyrics) */
+aside section:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+aside article:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+aside .main-card:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+aside .main-card-card,
+aside .main-card-cardContainer,
+aside .e-10860-legacy-box,
+aside [data-testid="card-click-handler"],
+aside [data-testid="now-playing-view-artist-card"],
+aside [data-testid="now-playing-view-track-info"],
+aside .main-nowPlayingView-content,
+aside .main-nowPlayingView-section,
+aside div:has(> img):not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+aside div:has(> button > img),
+aside div:has(> a > img),
+[aria-label*="Now playing view"] div[style*="background"]:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+[aria-label*="ahora suena"] div[style*="background"]:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+[aria-label*="Now playing view"] [style*="background-color"]:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])),
+[aria-label*="ahora suena"] [style*="background-color"]:not([data-testid*="lyric"]):not(:has([data-testid*="lyric"])) {
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+aside .main-nowPlayingView-trackInfo *,
+aside [data-testid="now-playing-view-track-info"] * {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+}
+
+
+/* When right sidebar is collapsed, collapse the top playbar box too! */
+body.starrynight-sidebar-collapsed .Root__top-container > :has([data-testid="now-playing-bar"]),
+body.starrynight-sidebar-collapsed .main-nowPlayingBar-container,
+body.starrynight-sidebar-collapsed [data-testid="now-playing-bar"],
+[data-right-sidebar-hidden] .Root__top-container > :has([data-testid="now-playing-bar"]),
+[data-right-sidebar-hidden] .main-nowPlayingBar-container,
+[data-right-sidebar-hidden] [data-testid="now-playing-bar"] {
+  display: none !important;
+}
+
+body.starrynight-sidebar-collapsed .Root__top-container,
+[data-right-sidebar-hidden] .Root__top-container {
+  grid-template-columns: auto 1fr auto !important;
+}
+
+
+/* Clean, high-performance transparency for main view without scanning child track rows */
+:root,
+.encore-dark-theme,
+.encore-layout-themes {
+  --background-base: transparent !important;
+  --background-elevated-base: transparent !important;
+  --background-elevated-highlight: rgba(255, 255, 255, 0.08) !important;
+  --background-elevated-press: rgba(255, 255, 255, 0.05) !important;
+  --background-highlight: rgba(255, 255, 255, 0.08) !important;
+  --background-press: rgba(255, 255, 255, 0.05) !important;
+  --background-tinted-base: transparent !important;
+  --background-tinted-highlight: rgba(255, 255, 255, 0.08) !important;
+  --background-tinted-press: rgba(255, 255, 255, 0.05) !important;
+  --background-base-high-contrast: transparent !important;
+  --background-base-70: transparent !important;
+  --background-base-20: transparent !important;
+  --spice-card: transparent !important;
+  --spice-main-elevated: transparent !important;
+  --bgColor: transparent !important;
+}
+
+.main-view-container,
+.main-view-container__scroll-node,
+.main-view-container__scroll-node-child,
+.main-actionBarBackground-background,
+.under-main-view,
+[data-testid="action-bar-background"],
+.main-home-homeHeader,
+[data-testid="home-page"],
+.main-home-content,
+[data-testid="playlist-page"],
+[data-testid="artist-page"],
+[data-testid="album-page"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  --background-base: transparent !important;
+  --background-elevated-base: transparent !important;
+  --background-highlight: transparent !important;
+  --spice-card: transparent !important;
+  --bgColor: transparent !important;
+}
+
+.Root__top-container [style*="--background-base"]:not(.e-10860-legacy-box):not(.e-10860-legacy-box *):not(:is(.hbNOZbHD3bPL3OcHQWNn, .r8bczAWCEgb9_L0iyIcc, .IfBZ5VdI_2nwDMl4H6Yh, .uP1rcUSIWCFaOZaoH0ZG)),
+.Root__top-container [style*="--background-base"]:not(.e-10860-legacy-box):not(.e-10860-legacy-box *)::after {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Home header, chips row & gradient backdrops transparency (eliminates dark grey box behind chips and shortcuts) */
+.kflHPd1wGLg8GjJjmpc6,
+.goKxWei7aIJdA857U744,
+.goKxWei7aIJdA857U744::after,
+.goKxWei7aIJdA857U744.cthJwTHIkmtEcnCP_Oov:after,
+.B8RHlWvcQhk8maUWuKHp,
+.JNjhVnc811Df_eyMFjWZ,
+.UVYctYdrqLPPR8ju42cQ,
+.np7mxVwUxpwaaTFCwM7W,
+.zXqXzwcHMwRbVP7gxcgT,
+.TzE_RD_FEONBYNCJKtqI,
+.qVFKr8VBRzx3iJDS1SnQ,
+.qVFKr8VBRzx3iJDS1SnQ:hover,
+.qVFKr8VBRzx3iJDS1SnQ:focus,
+.qVFKr8VBRzx3iJDS1SnQ:focus-visible,
+.qVFKr8VBRzx3iJDS1SnQ:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Home shortcut items & Spotify card transparency */
+.x0Tk9K1tu0sFwdD5iNF5,
+.x0Tk9K1tu0sFwdD5iNF5 .NUiqbKHNgjojKGdhEu1c,
+.Tdp4VkHTFCXm8OKqt2xw,
+.mpXpsL8sGx7xHzYAb5X7,
+.view-homeShortcutsGrid-shortcut,
+.view-homeShortcutsGrid-shortcutContainer,
+.view-homeShortcutsGrid-grid,
+.view-homeShortcutsGrid-shortcuts,
+[data-testid="shortcut-item"],
+[data-testid="shortcut-background"],
+.main-card-card,
+.main-card-cardContainer,
+.main-heroCard-card,
+.main-shelf-shelfCard,
+[data-testid="card-click-handler"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.x0Tk9K1tu0sFwdD5iNF5:hover,
+.x0Tk9K1tu0sFwdD5iNF5:focus-within,
+.x0Tk9K1tu0sFwdD5iNF5[data-context-menu-open="true"],
+.view-homeShortcutsGrid-shortcut:hover,
+[data-testid="shortcut-item"]:hover,
+.main-card-card:hover,
+.main-card-cardContainer:hover,
+.main-heroCard-card:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  transition: background-color 0.2s ease !important;
+}
+
+
+.main-view-container [role="presentation"]:has([role="columnheader"]) {
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Optimize tracklist virtualized rows for instant rendering and smooth scrolling */
+[role="row"] {
+  background-color: transparent !important;
+}
+
+[role="row"]:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* Now playing bar container sizing & height */
+.main-nowPlayingBar-nowPlayingBar {
+  flex-direction: column;
+  min-height: max(450px, var(--starrynight-panel-width, 420px));
+  height: auto !important;
+  background: transparent !important;
+  overflow: visible !important;
+  padding-bottom: 14px;
+}
+
+.main-nowPlayingBar-container {
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 420px;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.main-nowPlayingBar-center {
+  width: 100%;
+}
+
+.main-nowPlayingBar-left {
+  width: 100%;
+}
+
+.main-nowPlayingWidget-nowPlaying {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nowPlayingBar-right {
+  width: 100%;
+}
+
+.main-nowPlayingBar-extraControls {
+  justify-content: space-evenly;
+}
+
+.starrynight-bg-container {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  overflow: hidden;
+  contain: strict;
+  transform: translateZ(0);
+}
+
+.starrynight-bg-container div,
+.starrynight-star {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: var(--spice-star, #ffffff);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
+
+[data-testid="now-playing-bar"] {
+  min-height: max(450px, var(--starrynight-panel-width, 420px));
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+/* Now playing widget with generous top padding so the vinyl and its glow are NEVER clipped */
+[data-testid="now-playing-bar"] [data-testid="now-playing-widget"] {
+  padding-top: 32px !important;
+  padding-bottom: 8px !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible !important;
+}
+
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > div:has(a)
+  *,
+[data-testid="now-playing-bar"] .main-trackInfo-container * {
+  text-align: center;
+  justify-content: center;
+}
+
+[data-testid="now-playing-bar"] [data-testid="CoverSlotCollapsed__container"] {
+  width: 100%;
+  margin-inline-end: 0;
+  border-radius: 0;
+  overflow: visible !important;
+  display: flex;
+  justify-content: center;
+}
+
+button[data-testid="cover-art-button"] {
+  width: min(
+    215px,
+    calc(var(--starrynight-panel-width, 360px) * 0.56)
+  ) !important;
+  height: min(
+    215px,
+    calc(var(--starrynight-panel-width, 360px) * 0.56)
+  ) !important;
+  margin: 10px auto 6px auto !important;
+  aspect-ratio: 1 / 1;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  display: block !important;
+  overflow: visible !important;
+  border: none !important;
+  border-radius: 50% !important;
+}
+
+[data-testid="now-playing-bar"] [data-testid="cover-art-button"] > div,
+[data-testid="now-playing-bar"] [data-testid="cover-art-button"] > div > div {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+  overflow: visible !important;
+}
+
+[data-testid="now-playing-bar"] [data-testid="cover-art-button"] img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  animation: spin 25s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  box-shadow: 0 0 10px 3px var(--spice-star-glow, #ffffff), 0 0 4px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-testid="now-playing-bar"]:has(
+    [data-testid="control-button-playpause"][aria-label*="aus"]
+  )
+  [data-testid="cover-art-button"]
+  img,
+[data-testid="now-playing-bar"]:has(
+    [data-testid="control-button-playpause"][aria-label*="Pause"]
+  )
+  [data-testid="cover-art-button"]
+  img,
+[data-testid="now-playing-bar"]:has(
+    [data-testid="control-button-playpause"][aria-label*="Stop"]
+  )
+  [data-testid="cover-art-button"]
+  img,
+body.starrynight-is-playing [data-testid="now-playing-bar"] [data-testid="cover-art-button"] img {
+  animation-play-state: running !important;
+}
+
+[data-testid="now-playing-bar"] [data-testid="general-controls"],
+[data-testid="now-playing-bar"] .player-controls__buttons {
+  order: 2;
+  justify-content: center;
+}
+
+[data-testid="now-playing-bar"] .playback-bar {
+  order: 1;
+  transform: translateY(-12px) !important;
+}
+
+[data-testid="now-playing-bar"] .player-controls__left,
+[data-testid="now-playing-bar"] .player-controls__right {
+  flex: 0 1 auto;
+  justify-content: center;
+}
+
+[data-testid="now-playing-bar"] [data-testid="control-button-playpause"],
+.main-playPauseButton-button {
+  background-color: var(--spice-button) !important;
+  color: #000000 !important;
+  border-radius: 50% !important;
+}
+
+[data-testid="now-playing-bar"] [data-testid="control-button-playpause"] svg,
+.main-playPauseButton-button svg {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+[data-testid="now-playing-bar"]
+  .main-nowPlayingWidget-nowPlaying
+  > :not([data-testid="CoverSlotCollapsed__container"]) {
+  margin-block: 10px 0;
+}
+
+.LayoutResizer__resize-bar,
+.LayoutResizer__resize-bar * {
+  outline: none !important;
+}
+
+/* Original Delroy Prithvi Twinkling Keyframes with Glowing Pulse */
+@keyframes twinkle1 {
+  0%, 100% {
+    box-shadow: 0px 0px 8px 2px var(--spice-star-glow);
+    opacity: 1;
+  }
+  20%, 80% {
+    box-shadow: 0px 0px 8px 2px var(--spice-star-glow);
+    opacity: 0.9;
+  }
+  40%, 60% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.25;
+  }
+}
+
+@keyframes twinkle2 {
+  0%, 100% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.25;
+  }
+  20%, 80% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.3;
+  }
+  40%, 60% {
+    box-shadow: 0px 0px 8px 2px var(--spice-star-glow);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle3 {
+  0%, 100% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.2;
+  }
+  40% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.25;
+  }
+  80% {
+    box-shadow: 0px 0px 8px 2px var(--spice-star-glow);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle4 {
+  0%, 100% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.2;
+  }
+  20% {
+    box-shadow: 0px 0px 8px 2px var(--spice-star-glow);
+    opacity: 1;
+  }
+  40%, 80% {
+    box-shadow: 0px 0px 0px 0px var(--spice-star-glow);
+    opacity: 0.25;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg) translateZ(0);
+  }
+  to {
+    transform: rotate(360deg) translateZ(0);
+  }
+}
+
+/*
+Pure CSS Shooting Star Animation Effect Copyright (c) 2021 by Delroy Prithvi (https://codepen.io/delroyprithvi/pen/LYyJROR)
+*/
+.shootingstar {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--spice-shooting-star);
+  border-radius: 50%;
+  animation: animate 6s linear infinite;
+  left: initial;
+  z-index: 0 !important;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.shootingstar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--spice-shooting-star), transparent);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(315deg) translateX(0) translateZ(0);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70%, 100% {
+    transform: rotate(315deg) translateX(-1500px) translateZ(0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shootingstar,
+  [data-testid="now-playing-bar"] [data-testid="cover-art-button"] img,
+  .starrynight-bg-container div {
+    animation: none !important;
+  }
+}
+
+.lyrics-lyrics-background {
+  background-color: #00000000 !important;
+}
+
+/* Keep the Home artwork banner transparent without affecting shortcuts. */
+#main-view .kMaYBahSBLOnErF7DLR2 {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Blur the Home sticky header's fading background. */
+#main-view .jTuahgNncRCCfJfiJwQi > :first-child {
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important;
+}
+
+/* Overlap the top-bar and track-header blurs without shifting their content. */
+
+/* Keep the stars behind the headers. */
+#main-view {
+  z-index: 1 !important;
+}
+
+/* Extend the 64px top bar to 88px without moving its controls. */
+#main-view > header[data-testid="topbar"] {
+  box-sizing: border-box !important;
+  height: 88px !important;
+  padding-bottom: 24px !important;
+  contain: none !important;
+  z-index: auto !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Blur the native top-bar background and feather its bottom edge. */
+#main-view > header[data-testid="topbar"] > div[style*="--background-base"] {
+  height: 100% !important;
+  z-index: 5 !important;
+  --background-base: transparent !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-mask-image: linear-gradient(to bottom, black 0, black calc(100% - 22px), transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, black 0, black calc(100% - 22px), transparent 100%) !important;
+}
+
+#main-view > header[data-testid="topbar"] > div[style*="--background-base"] > div {
+  background: transparent !important;
+}
+
+/* Keep the top-bar controls above both blur layers. */
+#main-view > header[data-testid="topbar"] > .contentSpacing {
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+/* Extend the 37px track header upward by 24px without moving its text. */
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"]) {
+  box-sizing: border-box !important;
+  height: 61px !important;
+  margin-top: -24px !important;
+  padding-top: 24px !important;
+  top: 40px !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Blur the track header, fading in across its top 22px. */
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1;
+  pointer-events: none !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 22px) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, black 22px) !important;
+}
+
+/* Fade the lower blur as the track header becomes sticky.
+   Fall back to the sticky-state class where scroll timelines are unavailable. */
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+  opacity: 0;
+  transition: opacity 200ms linear;
+}
+
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"].iPo4a2lbrsxW9Iedav3h:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+  opacity: 1;
+}
+
+@keyframes starrynight-lower-sticky-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Track the grid so the fade continues when the header stops scrolling.
+   The 103px inset combines the 40px sticky offset, 23px gap, and 40px fade. */
+@supports (view-timeline-inset: 0px calc(100% - 103px)) and (animation-timeline: --starrynight-lower-sticky) {
+  .main-view-container__scroll-node-child
+  [role="grid"]:has(> [data-scroll-size-invariant-class][role="presentation"] > [role="presentation"] > [role="row"] > [role="columnheader"]) {
+    view-timeline-name: --starrynight-lower-sticky;
+    view-timeline-axis: block;
+    view-timeline-inset: 0px calc(100% - 103px);
+  }
+
+  .main-view-container__scroll-node-child
+  [data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+    animation: starrynight-lower-sticky-fade 1s linear both !important;
+    animation-timeline: --starrynight-lower-sticky !important;
+    animation-range: cover 0px cover 40px !important;
+    transition: none !important;
+  }
+}
+
+/* Release the scrollport stacking context without raising the whole scroller. */
+.main-view-container__scroll-node > :has(> .main-view-container__scroll-node-child) {
+  z-index: auto !important;
+  will-change: scroll-position !important;
+}
+
+/* Keep this rule separate; nested :has() previously broke the combined selector. */
+.main-view-container__scroll-node-child {
+  isolation: auto !important;
+}
+
+/* Release the playlist wrapper isolation only when a track header is present. */
+.main-view-container__scroll-node-child > main > section:has(
+  [data-scroll-size-invariant-class][role="presentation"] > [role="presentation"] > [role="row"] > [role="columnheader"]
+) > div {
+  isolation: auto !important;
+}
+
+/* Downpurp-only overrides, selected by its color.ini marker. */
+@container style(--spice-downpurp-marker: #010101) {
+  
+  aside button[aria-label*="Expand"],
+  aside button[aria-label*="Expandir"],
+  aside button[aria-label*="Mostrar"] {
+    background: rgba(var(--spice-rgb-highlight, 133, 84, 240), 0.12) !important;
+    color: var(--spice-text, #ffffff) !important;
+  }
+
+  aside button[aria-label*="Expand"]:hover,
+  aside button[aria-label*="Expandir"]:hover,
+  aside button[aria-label*="Mostrar"]:hover {
+    background: rgba(var(--spice-rgb-highlight, 133, 84, 240), 0.25) !important;
+  }
+
+  /* Downpurp control and icon colors. */
+  aside button,
+  aside [role="button"],
+  .Root__top-container aside button,
+  .Root__top-container [data-testid="now-playing-bar"] button:not([data-testid="control-button-playpause"]):not([data-testid="cover-art-button"]),
+  .main-nowPlayingBar-extraControls button,
+  .player-controls__buttons button:not([data-testid="control-button-playpause"]),
+  button[aria-label*="Estás escuchando"],
+  button[aria-label*="Now Playing"],
+  button[aria-label*="Now playing"],
+  button[aria-label*="ahora suena"],
+  button[aria-label*="Expand"],
+  button[aria-label*="Expandir"],
+  button[aria-label*="Ocultar"] {
+    color: var(--spice-text, #ffffff) !important;
+  }
+
+  aside button svg,
+  aside [role="button"] svg,
+  .Root__top-container aside button svg,
+  .Root__top-container [data-testid="now-playing-bar"] button:not([data-testid="control-button-playpause"]):not([data-testid="cover-art-button"]) svg,
+  .main-nowPlayingBar-extraControls button svg,
+  .player-controls__buttons button:not([data-testid="control-button-playpause"]) svg,
+  button[aria-label*="Estás escuchando"] svg,
+  button[aria-label*="Now Playing"] svg,
+  button[aria-label*="Now playing"] svg,
+  button[aria-label*="ahora suena"] svg,
+  button[aria-label*="Expand"] svg,
+  button[aria-label*="Expandir"] svg,
+  button[aria-label*="Ocultar"] svg {
+    fill: var(--spice-text, #ffffff) !important;
+    color: var(--spice-text, #ffffff) !important;
+  }
+
+  aside button:hover,
+  aside [role="button"]:hover,
+  .main-nowPlayingBar-extraControls button:hover {
+    background-color: rgba(var(--spice-rgb-highlight, 133, 84, 240), 0.2) !important;
+  }
+
+  aside .main-nowPlayingView-trackInfo *,
+  aside [data-testid="now-playing-view-track-info"] * {
+    color: var(--spice-text, #ffffff) !important;
+  }
+
+  
+  .x0Tk9K1tu0sFwdD5iNF5:hover,
+  .x0Tk9K1tu0sFwdD5iNF5:focus-within,
+  .x0Tk9K1tu0sFwdD5iNF5[data-context-menu-open="true"],
+  .view-homeShortcutsGrid-shortcut:hover,
+  [data-testid="shortcut-item"]:hover,
+  .main-card-card:hover,
+  .main-card-cardContainer:hover,
+  .main-heroCard-card:hover,
+  [role="row"]:hover {
+    background-color: rgba(var(--spice-rgb-highlight, 133, 84, 240), 0.08) !important;
+  }
+
+  
+  [data-testid="now-playing-bar"] [data-testid="cover-art-button"] img {
+    box-shadow: 0 0 10px 3px var(--spice-star-glow, #ffffff),
+                0 0 4px 1px rgba(var(--spice-rgb-star-glow, 255, 255, 255), 0.4) !important;
+  }
+
+  /* Downpurp search, navigation, and library backgrounds. */
+  .main-topBar-searchBar,
+  input[data-top-bar-search="true"],
+  .main-globalNav-navLink,
+  .main-globalNav-navLinkActive,
+  button[aria-label*="Create"],
+  .main-yourLibraryX-libraryHeader .main-yourLibraryX-button {
+    background-color: #150e26 !important;
+  }
+}
+
+/* Keep the cover above the centered track info, with the Like button beside it. */
+[data-testid="now-playing-bar"] [data-testid="now-playing-widget"] {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: center;
+}
+
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > [data-testid="CoverSlotCollapsed__container"] {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: center;
+}
+
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > :not([data-testid="CoverSlotCollapsed__container"]):not(:has(> button[aria-checked])) {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+  min-width: 0;
+  margin-inline: 0 !important;
+}
+
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > :has(> button[aria-checked]) {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: start;
+  align-self: center;
+  margin-inline: 0 !important;
+}
+
+/* Keep the Like button square so its hover highlight stays round. */
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > :has(> button[aria-checked])
+  > button[aria-checked] {
+  box-sizing: border-box !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+}
+
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > :has(> button[aria-checked])
+  > button[aria-checked]::before,
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > :has(> button[aria-checked])
+  > button[aria-checked]::after {
+  border-radius: 50% !important;
+}
+
+/* Soften the Like button hover glow without changing its 32px hit area. */
+[data-testid="now-playing-bar"]
+  [data-testid="now-playing-widget"]
+  > :has(> button[aria-checked])
+  > button[aria-checked]:is(:hover, :focus-visible) {
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--spice-rgb-star-glow, 255, 255, 255), 0.26) 0%,
+    rgba(var(--spice-rgb-star-glow, 255, 255, 255), 0.14) 35%,
+    rgba(var(--spice-rgb-star-glow, 255, 255, 255), 0) 78%
+  ) !important;
+  box-shadow: 0 0 9px 2px rgba(var(--spice-rgb-star-glow, 255, 255, 255), 0.12) !important;
+}
+
+/* Use a circular hover fill for icon buttons with non-square hitboxes.
+   The Like button keeps its own softer glow. */
+.Root__top-container [data-testid="now-playing-bar"]
+  button:not([aria-checked]):not([data-testid="control-button-playpause"]):not([data-testid="cover-art-button"]):hover,
+.Root__top-container .player-controls__buttons
+  button:not([data-testid="control-button-playpause"]):hover,
+.Root__top-container .main-nowPlayingBar-extraControls button:hover,
+.Root__top-container aside button[aria-label]:has(svg):not([data-testid="cover-art-button"]):not([aria-checked]):not([aria-label*="Expand"]):not([aria-label*="Expandir"]):not([aria-label*="Mostrar"]):hover {
+  background: radial-gradient(
+    circle closest-side at center,
+    rgba(255, 255, 255, 0.20) 0% 99%,
+    transparent 100%
+  ) !important;
+}
+
+/* Use Downpurp purple for these hover highlights. */
+@container style(--spice-downpurp-marker: #010101) {
+  .Root__top-container [data-testid="now-playing-bar"]
+    button:not([aria-checked]):not([data-testid="control-button-playpause"]):not([data-testid="cover-art-button"]):hover,
+  .Root__top-container .player-controls__buttons
+    button:not([data-testid="control-button-playpause"]):hover,
+  .Root__top-container .main-nowPlayingBar-extraControls button:hover,
+  .Root__top-container aside button[aria-label]:has(svg):not([data-testid="cover-art-button"]):not([aria-checked]):not([aria-label*="Expand"]):not([aria-label*="Expandir"]):not([aria-label*="Mostrar"]):hover {
+    background: radial-gradient(
+      circle closest-side at center,
+      rgba(var(--spice-rgb-highlight, 133, 84, 240), 0.20) 0% 99%,
+      transparent 100%
+    ) !important;
+  }
+}
+
+/* Page banners: SpotifyDarkPurp layers with StarryNight transparent fades. */
+
+/* Show Spotify artwork-colored banner layers behind playlists, albums,
+   podcasts, and artist pages. */
+#main-view:has(.hbNOZbHD3bPL3OcHQWNn):has(.r8bczAWCEgb9_L0iyIcc)
+  :is(.main-view-container,
+      .main-view-container__scroll-node,
+      .main-view-container__scroll-node-child,
+      .t_mbBtGZ5QtvpsVNOtOj) {
+  background-color: transparent !important;
+}
+
+/* Preserve Spotify artwork colors; the luminance mask controls visibility. */
+#main-view:has(.hbNOZbHD3bPL3OcHQWNn):has(.r8bczAWCEgb9_L0iyIcc)
+  :is(.hbNOZbHD3bPL3OcHQWNn, .r8bczAWCEgb9_L0iyIcc) {
+  -webkit-mask-image: linear-gradient(
+    var(--spice-banner-visibility, #000000),
+    var(--spice-banner-visibility, #000000)
+  ) !important;
+  mask-image: linear-gradient(
+    var(--spice-banner-visibility, #000000),
+    var(--spice-banner-visibility, #000000)
+  ) !important;
+  mask-mode: luminance !important;
+}
+
+/* Handle the upper and lower Liked Songs banner layers. */
+#main-view:has(main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG):has(.IfBZ5VdI_2nwDMl4H6Yh)
+  :is(.main-view-container,
+      .main-view-container__scroll-node,
+      .main-view-container__scroll-node-child) {
+  background-color: transparent !important;
+}
+
+#main-view:has(main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG):has(.IfBZ5VdI_2nwDMl4H6Yh)
+  :is(
+    main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG,
+    .IfBZ5VdI_2nwDMl4H6Yh
+  ) {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    var(--spice-banner-visibility, #000000) 0%,
+    var(--starrynight-banner-fade-end, var(--spice-banner-visibility, #000000)) 100%
+  ) !important;
+  mask-image: linear-gradient(
+    to bottom,
+    var(--spice-banner-visibility, #000000) 0%,
+    var(--starrynight-banner-fade-end, var(--spice-banner-visibility, #000000)) 100%
+  ) !important;
+  mask-mode: luminance !important;
+}
+
+/* Fade the Liked Songs lower layer to transparent, keeping its colors and texture. */
+#main-view:has(main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG):has(.IfBZ5VdI_2nwDMl4H6Yh)
+  .IfBZ5VdI_2nwDMl4H6Yh {
+  --background-base: transparent !important;
+  --starrynight-banner-fade-end: transparent;
+}

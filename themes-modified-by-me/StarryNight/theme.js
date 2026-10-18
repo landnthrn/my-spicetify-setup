@@ -1,0 +1,152 @@
+function waitForElement(els, func, timeout = 100) {
+  const queries = els.map((el) => document.querySelector(el));
+  if (queries.every((a) => a)) {
+    func(queries);
+  } else if (timeout > 0) {
+    setTimeout(waitForElement, 50, els, func, --timeout);
+  }
+}
+
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+waitForElement(['.Root__top-container'], ([topContainer]) => {
+  const r = document.documentElement;
+  const rs = window.getComputedStyle(r);
+
+  // Clean up any canvas if present
+  const oldCanvas = document.querySelector('.starrynight-canvas');
+  if (oldCanvas) oldCanvas.remove();
+
+  // Background container
+  let backgroundContainer = document.querySelector('.starrynight-bg-container');
+  if (!backgroundContainer) {
+    backgroundContainer = document.createElement('div');
+    backgroundContainer.className = 'starrynight-bg-container';
+    topContainer.appendChild(backgroundContainer);
+  } else {
+    backgroundContainer.innerHTML = '';
+  }
+
+  const rootElement = document.querySelector('.Root__top-container');
+  if (rootElement) {
+    rootElement.style.zIndex = '0';
+  }
+
+  // 1. Original Delroy Prithvi Starry Sky with Full Star Density
+  // (Rendered using DocumentFragment for instant zero-lag DOM insertion)
+  const fragment = document.createDocumentFragment();
+  const starColor = rs.getPropertyValue('--spice-star') || '#ffffff';
+  const canvasSize =
+    (backgroundContainer.clientWidth && backgroundContainer.clientHeight)
+      ? backgroundContainer.clientWidth * backgroundContainer.clientHeight
+      : window.innerWidth * window.innerHeight;
+
+  // Full original star density (~350 to 500 stars across the entire sky)
+  const starsFraction = Math.floor(canvasSize / 4200);
+
+  for (let i = 0; i < starsFraction; i++) {
+    const size = Math.random() < 0.55 ? 1 : 2;
+    const star = document.createElement('div');
+    star.className = 'starrynight-star';
+    const left = (Math.random() * 99.5).toFixed(2);
+    const top = (Math.random() * 99.5).toFixed(2);
+    const opacity = (random(0.4, 1)).toFixed(2);
+    let css = `left:${left}%;top:${top}%;width:${size}px;height:${size}px;opacity:${opacity};`;
+    if (Math.random() < 0.28) {
+      const twId = Math.floor(Math.random() * 4) + 1;
+      const twDur = Math.floor(Math.random() * 3) + 4;
+      css += `animation:twinkle${twId} ${twDur}s infinite ease-in-out !important;`;
+    }
+    star.style.cssText = css;
+    fragment.appendChild(star);
+  }
+
+  // 2. Original Delroy Prithvi Shooting Stars (Continuous Pure CSS Infinite Loop)
+  const rawGlow = rs.getPropertyValue('--spice-rgb-shooting-star-glow');
+  const shootingStarGlowColor = rawGlow ? `rgba(${rawGlow},0.15)` : 'rgba(255,255,255,0.15)';
+  const shootingConfigs = [
+    { top: '-4px', right: '15%', dur: '4s', delay: '0s' },
+    { top: '30%', right: '-4px', dur: '4.5s', delay: '1.2s' },
+    { top: '-4px', right: '60%', dur: '5s', delay: '2.5s' },
+    { top: '45%', right: '-4px', dur: '4.2s', delay: '3.8s' },
+  ];
+
+  shootingConfigs.forEach((cfg) => {
+    const shootingstar = document.createElement('span');
+    shootingstar.className = 'shootingstar';
+    shootingstar.style.top = cfg.top;
+    shootingstar.style.right = cfg.right;
+    shootingstar.style.boxShadow = `0 0 0 4px ${shootingStarGlowColor}, 0 0 0 8px ${shootingStarGlowColor}, 0 0 20px ${shootingStarGlowColor}`;
+    shootingstar.style.setProperty('animation-duration', cfg.dur, 'important');
+    shootingstar.style.setProperty('animation-delay', cfg.delay, 'important');
+    fragment.appendChild(shootingstar);
+  });
+
+  backgroundContainer.appendChild(fragment);
+
+  // 3. Resize and collapse observer: when right sidebar collapses, collapse top playbar too!
+  const setupResizeObserver = () => {
+    const container = document.querySelector('.Root__top-container');
+    if (!container) return;
+    const rightSidebarSlot = document.querySelector(
+      '.Root__right-sidebar, aside#Desktop_PanelContainer_Id, [data-testid="right-sidebar"]'
+    );
+
+    if (rightSidebarSlot) {
+      let rafPending = false;
+      let lastWidth = -1;
+
+      const updateWidth = (w) => {
+        if (w === lastWidth || Math.abs(w - lastWidth) < 2) return;
+        lastWidth = w;
+
+        if (w < 200) {
+          document.body.classList.add('starrynight-sidebar-collapsed');
+          container.style.removeProperty('--starrynight-panel-width');
+        } else {
+          document.body.classList.remove('starrynight-sidebar-collapsed');
+          container.style.setProperty('--starrynight-panel-width', `${w}px`);
+        }
+      };
+
+      const ro = new ResizeObserver(([entry]) => {
+        const w = Math.round(entry.contentRect.width);
+        if (!rafPending) {
+          rafPending = true;
+          requestAnimationFrame(() => {
+            rafPending = false;
+            updateWidth(w);
+          });
+        }
+      });
+      ro.observe(rightSidebarSlot);
+    } else {
+      setTimeout(setupResizeObserver, 500);
+    }
+  };
+  setupResizeObserver();
+
+  // 4. Handle play/pause state for spinning cover art
+  const setupPlayStateObserver = () => {
+    if (window.Spicetify && Spicetify.Player) {
+      const updatePlaying = () => {
+        const isPlaying = Spicetify.Player.isPlaying();
+        if (isPlaying) {
+          document.body.classList.add('starrynight-is-playing');
+        } else {
+          document.body.classList.remove('starrynight-is-playing');
+        }
+      };
+      Spicetify.Player.addEventListener('onplaypause', updatePlaying);
+      Spicetify.Player.addEventListener('songchange', () => setTimeout(updatePlaying, 100));
+      updatePlaying();
+    } else {
+      setTimeout(setupPlayStateObserver, 300);
+    }
+  };
+  setupPlayStateObserver();
+});
+
+

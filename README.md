@@ -1,162 +1,151 @@
-![Modified Lucid PREVIEW](https://github.com/user-attachments/assets/34ca3d1a-20ab-4f71-9aa8-0a3d6cd28206)
 
 ![Modified StarryNight PREVIEW](https://github.com/user-attachments/assets/3c9c4c33-d704-45e3-803e-3aaff9734bf5)
 
-# ENJOY A BETTER SPOTIFY WITH THIS SPICETIFY SETUP!!
+This is my personal Spicetify setup, for those that want a great starting point to build on, or skip configuring and simply acquire what I consider to be a proper collection and configuration of Spicetify. 
+I've purposely left out parts that I felt were too opinionated for the common person.  
+Also includes "downpour-black" a theme I made using **[Spotify-Dark](https://github.com/SyndiShanX/Spotify-Dark)** as a starting point.
 
 ---
 
-### IMPORTANT NOTES
+### Notes
 
 - Use all the commands listed in this guide in PowerShell *(no admin needed)*
-
-- In commands provided, make sure to replace `<noteslikethis>` for what they state
-
-- The `zoomTheme.js` extension is just for the SpotifyDarkPurp Theme
+- See **[spicetify-command-cheatsheet.md](./spicetify-command-cheatsheet.md)** if you're unfamiliar with Spicetify's CLI
+  - In the commands provided, make sure to replace `<noteslikethis>` for what they state
+- Spicetify usually needs to be updated when Spotify does, whenever Spicetify developers release an update use `spicetify update` then `spicetify apply`
+  - If a Spotify update breaks it, you downgrade until Spicetify updates,  **[suggest using this tool](https://github.com/amd64fox/Rollback-Spotify)** or read how in the FAQ channel of Spicetify's Discord Server
+- Recommend to join the **[Spicetify Discord](https://discord.com/invite/spicetify-842219447716151306)**  
 
 ---
 
-### HOW TO INSTALL SPICETIFY
+### Installing Spicetify
 
-- Make sure Spotify is installed via Desktop, NOT Microsoft store
-
-- Once Spotify is installed & your signed in, open PowerShell
-
-- Run the following command:
-
+1. Make sure your Spotify install is desktop, not from Microsoft store *(square Spotify icon indicates Microsoft Store)*
+2. Run the official install command in PowerShell:
 ```powershell
 iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-cli/main/install.ps1 | iex
 ```
+3. Use `y` when prompted to install the marketplace
 
-- Install Marketplace as well by using `y` when prompted
-
-- Run backup:
-
-```powershell
-spicetify backup apply
-```
-
-You can also check out their page:
-
-### [Spicetify Installation Guide + Info](https://spicetify.app/docs/advanced-usage/installation)
+For more info, see their official page: **[Spicetify Installation Guide + Info](https://spicetify.app/docs/advanced-usage/installation**)
 
 ---
 
-### HOW TO APPLY MY SPICETIFY SETTINGS / SETUP
-**If you already have a marketplace setup of your own, export it first so it isn't lost.**
+### Apply My Marketplace Settings
 
-- Select the gear icon **Spicetify Marketplace**
-
-- Under **Backup/Restore**, press **Open > Import From File**
-
-- Select a setting in `Settings to Import` folder provided in this repo download
+1. Select the gear icon Spicetify Marketplace
+2. Backup/restore > open > import from file *(If you already have a marketplace setup of your own, export it first so it isn't lost.)*
+3. Select the setting `.json` you want from `settings\` folder provided in this repo
+   - My `marketplace-settings-starrynight.json` export is the same as my `marketplace-settings-universal.json` just with a couple less add-ons that sorta ruined the look of StarryNight. 
+4. Restart/Reload Spotify
 
 ---
 
-### HOW TO APPLY THEMES
+### Apply a Theme
 
-- Copy or move the folders inside **My Modified Themes** into this location:
-
-```text
-C:\Users\%USERNAME%\AppData\Local\spicetify\Themes
+1. Copy or move the folders inside `themes-modified-by-me\` &/or `themes-by-me\` to Spicetify's local theme location:
 ```
-
-- Run command:
-
+%localappdata%\spicetify\Themes
+```
+2. Apply your desired theme: (replace `<themefoldername>` with the theme folder name)
 ```powershell
-spicetify config current_theme <nameofthemefolder>
+spicetify config current_theme <themefoldername>
 spicetify apply
 ```
 
-For themes that come with more than one color scheme like Starrynight, you should specifiy it in the apply command  
-My modified Starrynight purple colorway uses color scheme `Base`, so use the following:
+#### Apply a Color Scheme
 
+For themes that come with multiple color schemes, pick the want you to apply.
+
+1. Open the theme's `color.ini`, scheme names are wrapped in [square brackets] 
+2. Apply the one you want by running: 
 ```powershell
-spicetify config current_theme Starrynight
-spicetify config color_scheme base
-spicetify apply
+spicetify config color_scheme <schemename>
 ```
+
+- My StarryNight modified color scheme you see in the preview is called `downpurp`
 
 ---
 
-### IF USING THE LUCID THEME - HOW TO APPLY MY LUCID THEME SETTINGS
+### Apply Local Extensions & Custom Apps
 
-- Once you have Lucid Theme applied, select the tiny gear icon at the top right of Spotify
+- The Marketplace makes installing add-ons easier, but plenty more can be found elsewhere & applied locally. This also gives freedom for add-ons to be more customized
+- Use `Appdata\Roaming` locations for local custom apps & extensions
 
-- Navigate to **Advanced** tab
+#### Local Extensions
 
-- Open the `My Lucid Theme Setup.json` with Notepad
-
-- Use `Ctrl + A` and copy all contents
-
-- Paste into the **Import Configuration** section of Lucid’s Advanced Settings section
-
-- You can customize the Lucid settings however you like from there :)
-
----
-
-### HOW TO INSTALL EXTERNAL EXTENIONS & CUSTOM APPS
-
-*The Marketplace offers many of the best, and makes them easy to install  
-Plenty more can be found outside the marketplace, here's how those are installed*
-
-*Use `Appdata\Roaming` locations for local file Custom Apps & Extensions, not `Appdata\Local`*
-
-#### EXTENSIONS
-
-- Place an Extension into this location:
-
-```text
-C:\Users\%USERNAME%\AppData\Roaming\spicetify\Extensions
+- Place an extension file in this location:
 ```
-
-- Run command:
-
+%appdata%\spicetify\Extensions
+```
+- Apply with:
 ```powershell
 spicetify config extensions <nameofextensionfile.itsformat>
 ```
 
-#### CUSTOM APPS
+#### Custom Apps
 
 - Place the custom app folder or file into this location:
-
-```text
-C:\Users\%USERNAME%\AppData\Roaming\spicetify\CustomApps
 ```
-
-- Run command:
-
+%localappdata%\AppData\Roaming\spicetify\CustomApps
+```
+- Apply with:
 ```powershell
 spicetify config custom_apps <nameofcustomappfolderorfile>
 ```
 
----
-
-### NOTES
-
-- Recommend to join the [Spicetify Discord](https://discord.com/invite/spicetify-842219447716151306)
-
-- Spicetify usually needs to be updated whenever Spotify does, whenever Spicetify developers release an update use `spicetify update` then `spicetify apply`
-
-- There is also a `Spicetify Commands.txt` included in this repo download if you ever need
-
-- This setup is just my personal favourite after having gone through everything like 10 times lol, enjoy!
 
 ---
 
-### CREDITS
+### Credits
 
-### [Spicetify Website](https://spicetify.app)
+#### Spicetify
 
-### [Spicetify Github](https://github.com/spicetify)
+- **[Spicetify Website](https://spicetify.app)**
+- **[Spicetify Github](https://github.com/spicetify)**
+- **[Spicetify Discord](https://discord.com/invite/spicetify-842219447716151306)**  
 
-### [Lucid Theme](https://github.com/sanoojes/spicetify-lucid)
+#### Themes
+- **[StarryNight (Newer)](https://github.com/Carlitos999yt/StarryNight-Repair-New-Version)** by **[Carlitos999yt](https://github.com/Carlitos999yt)**
+- **[StarryNight (Original)](https://github.com/spicetify/spicetify-themes/tree/master/StarryNight)** by **[b-chen00 (Brandon Chen)](https://github.com/b-chen00)** & **[laignelet16 (Julissa Laignelet)](https://github.com/laignelet16)**
+- **[Spotify-Dark](https://github.com/SyndiShanX/Spotify-Dark)** by **[SyndiShanX](https://github.com/SyndiShanX)**
 
-### [StarryNight Theme](https://github.com/spicetify/spicetify-themes/tree/master/StarryNight)
+#### Add-ons in my marketplace exports
 
-### [History in Sidebar](https://github.com/Bergbok/Spicetify-Creations/blob/main/CustomApps/history-in-sidebar/README.md)
+**Extensions**
+- **[Song Stats](https://github.com/rxri/spicetify-extensions)**, by **[CharlieS1103](https://github.com/CharlieS1103)**
+- **[Display full Album date](https://github.com/huhridge/huh-spicetify-extensions)**, by **[huhridge](https://github.com/huhridge)**
+- **[Full Screen](https://github.com/daksh2k/Spicetify-stuff)**, by **[daksh2k](https://github.com/daksh2k)**
+- **[Save Playlists](https://github.com/daksh2k/Spicetify-stuff)**, by **[daksh2k](https://github.com/daksh2k)**
+- **[Toggle DJ](https://github.com/ohitstom/spicetify-extensions)**, by **[ohitstom](https://github.com/ohitstom)**
+- **[Tracks To Edges](https://github.com/ohitstom/spicetify-extensions)**, by **[ohitstom](https://github.com/ohitstom)**
+- **[Queue Time](https://github.com/Theblockbuster1/spicetify-extensions)**, by **[Theblockbuster1](https://github.com/Theblockbuster1)**
+- **[Cover Ambience](https://github.com/Theblockbuster1/spicetify-extensions)**, by **[Theblockbuster1](https://github.com/Theblockbuster1)**
+- **["Made for you" shortcut](https://github.com/Pithaya/spicetify-apps)**, by **[Pithaya](https://github.com/Pithaya)**
+- **[Playlist icons](https://github.com/jeroentvb/spicetify-playlist-icons)**, by **[jeroentvb](https://github.com/jeroentvb)**
+- **[Reeeewiiiind](https://github.com/NickColley/spicetify-rewind)**, by **[NickColley](https://github.com/NickColley)**
+- **[HomeWhereYouBelong](https://github.com/yodaluca23/spicetify-extensions)**, by **[yodaluca23](https://github.com/yodaluca23)**
+- **[GoToSong](https://github.com/huhridge/huh-spicetify-extensions)**, by **[huhridge](https://github.com/huhridge)**
+- **[Quick Queue](https://github.com/ohitstom/spicetify-extensions)**, by **[ohitstom](https://github.com/ohitstom)**
+- **[Copy Lyrics](https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions)**, by **[Aimarekin](https://github.com/Aimarekin)**
+- **[Spicy Lyrics](https://github.com/Spikerko/spicy-lyrics)**, by **[Spikerko](https://github.com/Spikerko)**
+- **[Add to Multiple Playlists](https://github.com/JimMarley420/spicetify-extension)**, by **[JimMarley420](https://github.com/JimMarley420)**
+- **[Sort Play](https://github.com/hoeci/sort-play)**, by **[hoeci](https://github.com/hoeci)**
+- **[Play Without Context](https://github.com/JimMarley420/spicetify-extension)**, by **[JimMarley420](https://github.com/JimMarley420)**
+- **[Playlist Smart Search](https://github.com/Yumppe/spicetify-playlist-smart-search)**, by **[Yumppe](https://github.com/Yumppe)**
+- **[Play Next](https://github.com/daksh2k/Spicetify-stuff)**, by **[daksh2k](https://github.com/daksh2k)**
+- **[Wave Player](https://github.com/03x1/Wave-Player)**, by **[03x1](https://github.com/03x1)**
+- **[Waveform Playback Bar](https://github.com/Konsl/spicetify-extensions)**, by **[Konsl](https://github.com/Konsl)**
 
-All developers of Extensions, Custom Apps, & Snippets inside the settings import are credited in the Marketplace
+**Snippets**
+- **[Hide Mini Player Button](https://github.com/Ender-Wang/marketplace)**, by **[Ender-Wang](https://github.com/Ender-Wang)**
+- Hide now playing view button, by **[Resxt](https://github.com/Resxt)**
+- **[Hide 'Scroll through previews'](https://github.com/Donaldino7712/marketplace)**, by **[Donaldino7712](https://github.com/Donaldino7712)**
+- Hide What's New Button, by **[tsuliwaensis](https://github.com/tsuliwaensis)**
+- Remove Popular sections from homepage, by **[SunsetTechuila](https://github.com/SunsetTechuila)**
+- **[Rotating Cover Art](https://github.com/edicik/spicetify-marketplace)**, by **[edicik](https://github.com/edicik)**
+- Remove Duplicated Fullscreen Button, by **[MigProPlayer](https://github.com/MigProPlayer)**
+
 
 ---
 

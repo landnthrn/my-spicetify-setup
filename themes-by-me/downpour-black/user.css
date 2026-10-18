@@ -1,0 +1,805 @@
+:root {
+	--notification-bubble-bg: var(--spice-selected-row);
+	--border-primary: #5c5c5c;
+	--border-secondary: #c0c0c0;
+	--scrollbar-width: 15px;
+	--scrollbar-thumb: var(--spice-selected-row);
+	--scrollbar-thumb-hover: color-mix(in srgb, var(--spice-selected-row) 82%, var(--spice-misc) 18%);
+}
+
+/* Light Background Image */
+/* Disable upstream light background textures */
+.main-home-homeHeader, .x-entityHeader-overlay, .x-actionBarBackground-background, .main-contextMenu-menu, .main-navBar-mainNav .os-padding, .main-trackList-selected, #spicetify-playlist-list,
+.main-dropDown-dropDown, textarea:not(#marketplace-import-text), input, .main-yourLibraryX-libraryRootlist, .main-nowPlayingView-section, .main-popper-container,
+.main-devicePicker-devicesList, .main-devicePicker-heading, .main-userWidget-dropDownMenu>ul {
+	background-image: none!important;
+}
+
+/* Hover Background Image */
+/* Disable upstream hover textures */
+.main-card-card:hover, .main-contextMenu-menuItem:hover, #spicetify-playlist-list .main-useDropTarget-base:hover, .lyrics-lyrics-background, .main-trackList-trackListRow:hover,
+.main-devicePicker-heading:hover, .view-homeShortcutsGrid-main, .main-gridContainer-gridContainer:not(.marketplace-grid) .main-card-draggable {
+	background-image: none!important;
+}
+
+/* Playback Bar Background Image */
+/* Disable upstream playback/library textures */
+.main-nowPlayingBar-nowPlayingBar .playback-bar, .main-nowPlayingBar-container, .main-yourLibraryX-navItems, .main-yourLibraryX-libraryContainer {
+	background-image: none!important;
+}
+
+/* Dark Background Image */
+/* Disable upstream dark background textures */
+.main-entityHeader-backgroundColor, .main-navBar-mainNav, .main-topBar-background, .main-topBar-overlay, .main-trackList-trackListHeader, .Root__top-bar, .main-actionBar-ActionBar,
+.main-card-card, .main-actionBarBackground-background, .main-view-container, .main-home-homeHeader, .Root__top-container,
+.GenericModal:not([aria-label="Advertisement"])>div, .contentSpacing:has(>.main-trackList-trackListContainer), .playlist-playlist-playlistContent>.contentSpacing {
+	background-image: none!important;
+}
+
+/* Scrollbar */
+.os-scrollbar {
+  display: unset!important;
+	background: 0 0!important;
+	border: none!important;
+	width: var(--scrollbar-width)!important;
+}
+.os-scrollbar-handle {
+  border-radius: 20px!important;
+  background: var(--scrollbar-thumb)!important;
+	min-height: 60px!important;
+}
+.os-scrollbar-handle:hover {
+  border-radius: 20px!important;
+  background: var(--scrollbar-thumb-hover)!important;
+}
+
+/* Main Tweaks */
+.view-homeShortcutsGrid-shortcut, .main-gridContainer-gridContainer:not(.marketplace-grid) .main-card-draggable, .main-yourLibraryX-listItem:has([d^="M10.016 1.125A.75.75 0 0 0 8.99.85l-6.925"], [d^="M16 8a5.752 5.752 0 0 1-4.5"]) {
+  border: 1px solid var(--border-primary)!important;
+}
+.view-homeShortcutsGrid-shortcut:hover, .main-gridContainer-gridContainer:not(.marketplace-grid) .main-card-draggable:hover, .main-yourLibraryX-listItem:has([d^="M10.016 1.125A.75.75 0 0 0 8.99.85l-6.925"], [d^="M16 8a5.752 5.752 0 0 1-4.5"]):hover {
+  border: 1px solid var(--border-secondary)!important;
+}
+.main-yourLibraryX-listItem {
+	width: 97%!important;
+	border-radius: 6px!important;
+}
+.main-leaderboardComponent-container {
+	display: none!important;
+}
+.main-card-card, .view-homeShortcutsGrid-shortcut, .GenericModal {
+	border-radius: 10px!important;
+}
+.main-rootlist-statusIcons {
+	position: relative!important;
+	right: 10px!important;
+}
+.x-settings-container {
+	max-width: 95%!important;
+}
+.lyrics-lyrics-background, .marketplace-header {
+	background-color: transparent!important;
+}
+.Root.encore-dark-theme {
+	--panel-gap: 0px!important;
+}
+.link-subtle.main-topBar-topbarContentRight {
+	position: relative;
+	left: -10px;
+}
+
+/* Spicy Lyrics Button Fix */
+#SpicyLyrics_PopupLyricsButton, #SpicyLyrics_FullscreenButton, .main-genericButton-button:has(#SpicyLyricsPageSvg) {
+	background-color: transparent!important;
+	border: none!important;
+	padding-right: 1%;
+}
+#SpicyLyrics_PopupLyricsButton, #SpicyLyrics_FullscreenButton {
+	padding-right: 3%;
+}
+
+/* Button Colors */
+.main-addButton-active, .control-button--active, .control-button-heart[aria-checked=true], .main-trackList-statusChangeUp, .MBzbwWcyfbqSftBtnn3g button>svg,
+.main-userWidget-active, input:checked~.x-toggle-indicatorWrapper, .connect-device-list-item--active, .connect-device-list-item--active .connect-device-list-item__device-subtitle,
+.connect-device-list-item--active .connect-device-list-item__icon, .main-trackList-trackListRow.main-trackList-active .main-trackList-rowMarker, .main-trackList-enhanced,
+.main-trackList-trackListRow.main-trackList-active .main-trackList-rowTitle, .main-navBar-mainNavItem .main-useDropTarget-base--active, .main-yourEpisodesButton-yourEpisodesIcon,
+.main-yourEpisodes-coverIcon, .main-trackList-trackListRow.main-trackList-active:hover .main-trackList-rowMarker, .main-trackList-trackListRow.main-trackList-active:hover .main-trackList-rowTitle,
+.main-trackList-trackListRow.main-trackList-active:focus-within .main-trackList-rowMarker, .main-trackList-trackListRow.main-trackList-active:focus-within .main-trackList-rowTitle,
+.control-button--active:not(.control-button--disabled):focus, .control-button--active:not(.control-button--disabled):hover, .control-button--active:not(.control-button--disabled):active:focus,
+.control-button--active:not(.control-button--disabled):active:hover, .main-shuffleButton-button.main-shuffleButton-active, .main-shuffleButton-button.main-shuffleButton-active:not([disabled]):focus,
+.main-shuffleButton-button.main-shuffleButton-active:not([disabled]):hover, .main-shuffleButton-button.main-shuffleButton-active:not([disabled]):focus:not(:focus-visible):not(:hover),
+.main-repeatButton-button.main-repeatButton-active, .main-repeatButton-button.main-repeatButton-active:not([disabled]):focus, .main-repeatButton-button.main-repeatButton-active:not([disabled]):hover,
+.main-repeatButton-button.main-repeatButton-active:not([disabled]):focus:not(:focus-visible):not(:hover) {
+	color: var(--spice-button-active)!important;
+}
+.main-navBar-mainNavItem .main-useDropTarget-base--active:after, .main-collectionLinkButton-dragEnter:after {
+	border-color: var(--spice-button-active)!important;
+	color: var(--spice-button-active)!important;
+}
+.encore-bright-accent-set, .control-button--active-dot:after, .main-playButton-PlayButton.main-playButton-primary, input:checked:hover:not([disabled]):not(:active)~.x-toggle-indicatorWrapper {
+	background-color: var(--spice-button-active)!important;
+}
+.main-rootlist-dropIndicator, .main-trackList-trackListRow.main-trackList-dropTargetBefore:before, .main-trackList-trackListRow.main-trackList-dropTargetAfter:after {
+	background: var(--spice-button-active)!important;
+}
+.main-progressRing-circleColor {
+	stroke: var(--spice-button-active)!important;
+}
+.control-button--active {
+	fill: var(--spice-button-active)!important;
+}
+.encore-dark-theme .encore-bright-accent-set, .encore-dark-theme .encore-positive-set {
+	--background-base: var(--spice-button-active);
+	--background-highlight: var(--spice-button-active);
+	--background-elevated-base: var(--spice-button-active);
+	--background-elevated-highlight: var(--spice-button-active);
+	--background-elevated-press: var(--spice-button-active);
+	--background-tinted-base: var(--spice-button-active);
+	--background-tinted-highlight: var(--spice-button-active);
+	--background-tinted-press: var(--spice-button-active);
+	--background-unsafe-for-small-text-base: var(--spice-button-active);
+	--background-unsafe-for-small-text-highlight: var(--spice-button-active);
+	--background-unsafe-for-small-text-press: var(--spice-button-active);
+	--decorative-subdued: var(--spice-button-active);
+	--text-bright-accent: var(--spice-button-active);
+	--text-positive: var(--spice-button-active);
+	--essential-bright-accent: var(--spice-button-active);
+	--essential-positive: var(--spice-button-active);
+	--is-active-fg-color: var(--spice-button-active);
+}
+
+/* Notification Bubble */
+.main-notificationBubble-NotificationBubble {
+	background-color: var(--notification-bubble-bg)!important;
+}
+.main-notificationBubble-NotificationBubble::after {
+	border-bottom-color: var(--notification-bubble-bg)!important;
+}
+
+/* Text */
+.GenericModal div, .main-button-tertiary, .encore-light-theme > h2, .encore-light-theme > p, .encore-light-theme button, .encore-bright-accent-set , .lyrics-lyricsContent-description {
+	color: #fff!important;
+}
+.lyrics-lyricsContent-lyric:not(.lyrics-lyricsContent-active, .lyrics-lyricsContent-highlight), .lyrics-lyricsContent-provider {
+	color: #444444!important;
+}
+.lyrics-lyricsContent-highlight {
+	color: #333333!important;
+}
+
+
+/* Full Screen Now Playing */
+.npv-main-container .playback-bar {
+	position: relative!important;
+	bottom: -125px!important;
+}
+.npv-main-container .main-addButton-button {
+	position: relative!important;
+	left: 620px!important;
+}
+.npv-what-is-playing__metadata {
+	position: relative!important;
+	bottom: 75px!important;
+}
+.npv-has-animations-and-transitions.spotifyinternal-artistnpv .npv-what-is-playing .npv-cover-art--not-expanded, .npv-has-animations-and-transitions.spotifyinternal-artistnpv .npv-what-is-playing .npv-track {
+	opacity: 100!important;
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+
+/* Fullscreen Play Panel Fix */
+.PlayPanel {
+	top: -45vh;
+}
+
+
+/* Original upstream headings for sections removed from this variant.
+   Their old CSS rules remain removed. */
+/* Now Playing */
+/* Now Playing Cover Art */
+/* Progress Alignment Bar Fix */
+/* ---------- CSS Snippets ---------- */
+/* Now Playing NCS visualizer - darkthemer */
+/* Dancing Penguin - SunsetTechuila */
+/* Penguin */
+/* Duck */
+
+/* Extension compatibility */
+
+/* Use the scheme subtext shade for supplementary labels */
+[aria-label*="By you"],
+.chip span,
+.chips-container span,
+button[data-testid*="chip"] span,
+.main-view-container span[dir="auto"] {
+  color: var(--spice-subtext) !important;
+}
+
+/* Use the scheme muted accent for player icons */
+.player-controls button,
+.player-controls__buttons button,
+.control-button,
+button[class*="control-button"],
+.main-nowPlayingBar-button,
+button[aria-label*="Play"],
+button[aria-label*="Pause"],
+button[aria-label*="Next"],
+button[aria-label*="Previous"],
+button[aria-label*="Skip"],
+button[class*="spoticon"],
+.spoticon {
+  color: var(--spice-misc) !important;
+  fill: var(--spice-misc) !important;
+}
+
+.player-controls button svg,
+.control-button svg {
+  color: var(--spice-misc) !important;
+  fill: var(--spice-misc) !important;
+}
+
+/* Keep dialogs above Spotify without disrupting sticky-header stacking. */
+.GenericModal,
+.Backdrop,
+[role="dialog"] {
+  z-index: 9999 !important;
+}
+
+/* Make sure extension UI elements are visible */
+button[class*="Button"],
+button[class*="control"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Allow fullscreen extensions to work */
+.main-view-container__scroll-node-child {
+  position: relative;
+}
+
+/* Use the scheme button accent for bottom-right playback controls */
+.control-button:not(.control-button--active),
+button[aria-label*="Volume"],
+button[aria-label*="Mute"],
+button[aria-label*="Full screen"],
+button[aria-label*="Exit full screen"],
+button[aria-label*="Minimize"],
+button[aria-label*="Maximize"],
+button[aria-label*="Close"],
+.volume-bar button,
+.main-nowPlayingBar-nowPlayingBar button:not(.control-button--active) {
+  color: var(--spice-button) !important;
+  fill: var(--spice-button) !important;
+}
+
+.control-button:not(.control-button--active) svg,
+button[aria-label*="Volume"] svg,
+button[aria-label*="Mute"] svg,
+button[aria-label*="Full screen"] svg,
+button[aria-label*="Exit full screen"] svg,
+button[aria-label*="Minimize"] svg,
+button[aria-label*="Maximize"] svg,
+button[aria-label*="Close"] svg,
+.volume-bar button svg {
+  color: var(--spice-button) !important;
+  fill: var(--spice-button) !important;
+}
+
+/* Keep the volume slider background neutral grey and remove its box */
+.volume-bar__slider-container,
+.volume-bar__slider-container .playback-progressbar,
+.playback-progressbar__bg,
+.volume-bar .playback-progressbar__bg {
+  background: #7A7A7A !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Keep the played progress fill scheme-colored */
+.main-progressBar-progressBarBackground,
+.playback-progressbar__bg {
+  background: #4A4A4A !important;
+}
+
+.main-progressBar-progressBarForeground,
+.playback-progressbar__fg {
+  background: var(--spice-button-active) !important;
+}
+
+/* Additional volume slider fixes - remove any container styling */
+.volume-bar,
+.volume-bar__slider-container,
+.volume-bar .playback-progressbar,
+.volume-bar .playback-progressbar__bg {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.volume-bar .playback-progressbar__bg {
+  background: #7A7A7A !important;
+}
+
+.volume-bar .playback-progressbar__fg {
+  background: var(--spice-button-active) !important;
+}
+
+/* Central play/pause button uses the scheme active accent and a brighter hover */
+.main-playPauseButton-button,
+.main-playPauseButton-playPauseButton,
+button.main-playPauseButton-button,
+button.main-playPauseButton-playPauseButton {
+  background: var(--spice-button-active) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #000000 !important;
+}
+
+.main-playPauseButton-button svg,
+.main-playPauseButton-playPauseButton svg,
+.main-playPauseButton-button .spoticon,
+.main-playPauseButton-playPauseButton .spoticon,
+button.main-playPauseButton-button svg,
+button.main-playPauseButton-playPauseButton svg,
+button.main-playPauseButton-button .spoticon,
+button.main-playPauseButton-playPauseButton .spoticon {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+.main-playPauseButton-button:hover,
+.main-playPauseButton-playPauseButton:hover,
+button.main-playPauseButton-button:hover,
+button.main-playPauseButton-playPauseButton:hover {
+  background: color-mix(in srgb, var(--spice-button-active) 80%, white 20%) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #000000 !important;
+}
+
+.main-playPauseButton-button:hover svg,
+.main-playPauseButton-playPauseButton:hover svg,
+.main-playPauseButton-button:hover .spoticon,
+.main-playPauseButton-playPauseButton:hover .spoticon,
+button.main-playPauseButton-button:hover svg,
+button.main-playPauseButton-playPauseButton:hover svg,
+button.main-playPauseButton-button:hover .spoticon,
+button.main-playPauseButton-playPauseButton:hover .spoticon {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+/* Play/pause button overrides */
+html body .encore-dark-theme button.main-playPauseButton-button.encore-bright-accent-set,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton.encore-bright-accent-set,
+html body .encore-dark-theme .main-playPauseButton-button.encore-bright-accent-set,
+html body .encore-dark-theme .main-playPauseButton-playPauseButton.encore-bright-accent-set,
+html body button.main-playPauseButton-button.encore-bright-accent-set,
+html body button.main-playPauseButton-playPauseButton.encore-bright-accent-set,
+html body button.main-playPauseButton-button,
+html body button.main-playPauseButton-playPauseButton,
+html body .main-playPauseButton-button,
+html body .main-playPauseButton-playPauseButton {
+  background: var(--spice-button-active) !important;
+  background-color: var(--spice-button-active) !important;
+  color: #000000 !important;
+  fill: #000000 !important;
+  --background-base: var(--spice-button-active) !important;
+  --background-highlight: var(--spice-button-active) !important;
+  --text-base: #000000 !important;
+  --text-bright-accent: #000000 !important;
+  --essential-base: #000000 !important;
+}
+
+html body .encore-dark-theme button.main-playPauseButton-button.encore-bright-accent-set:hover,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton.encore-bright-accent-set:hover,
+html body .encore-dark-theme .main-playPauseButton-button.encore-bright-accent-set:hover,
+html body .encore-dark-theme .main-playPauseButton-playPauseButton.encore-bright-accent-set:hover,
+html body button.main-playPauseButton-button.encore-bright-accent-set:hover,
+html body button.main-playPauseButton-playPauseButton.encore-bright-accent-set:hover,
+html body button.main-playPauseButton-button:hover,
+html body button.main-playPauseButton-playPauseButton:hover,
+html body .main-playPauseButton-button:hover,
+html body .main-playPauseButton-playPauseButton:hover {
+  background: color-mix(in srgb, var(--spice-button-active) 80%, white 20%) !important;
+  background-color: color-mix(in srgb, var(--spice-button-active) 80%, white 20%) !important;
+  color: #000000 !important;
+  fill: #000000 !important;
+  --background-base: color-mix(in srgb, var(--spice-button-active) 80%, white 20%) !important;
+  --background-highlight: color-mix(in srgb, var(--spice-button-active) 80%, white 20%) !important;
+  --text-base: #000000 !important;
+  --text-bright-accent: #000000 !important;
+  --essential-base: #000000 !important;
+}
+
+/* Force SVG icons to be black */
+html body .encore-dark-theme button.main-playPauseButton-button svg,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton svg,
+html body .encore-dark-theme button.main-playPauseButton-button svg *,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton svg *,
+html body .encore-dark-theme button.main-playPauseButton-button path,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton path,
+html body button.main-playPauseButton-button svg,
+html body button.main-playPauseButton-playPauseButton svg,
+html body button.main-playPauseButton-button svg *,
+html body button.main-playPauseButton-playPauseButton svg *,
+html body button.main-playPauseButton-button path,
+html body button.main-playPauseButton-playPauseButton path,
+html body .main-playPauseButton-button svg,
+html body .main-playPauseButton-playPauseButton svg,
+html body .main-playPauseButton-button svg *,
+html body .main-playPauseButton-playPauseButton svg *,
+html body .main-playPauseButton-button path,
+html body .main-playPauseButton-playPauseButton path {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+/* Hover state SVG icons stay black */
+html body .encore-dark-theme button.main-playPauseButton-button:hover svg,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton:hover svg,
+html body .encore-dark-theme button.main-playPauseButton-button:hover svg *,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton:hover svg *,
+html body .encore-dark-theme button.main-playPauseButton-button:hover path,
+html body .encore-dark-theme button.main-playPauseButton-playPauseButton:hover path,
+html body button.main-playPauseButton-button:hover svg,
+html body button.main-playPauseButton-playPauseButton:hover svg,
+html body button.main-playPauseButton-button:hover svg *,
+html body button.main-playPauseButton-playPauseButton:hover svg *,
+html body button.main-playPauseButton-button:hover path,
+html body button.main-playPauseButton-playPauseButton:hover path,
+html body .main-playPauseButton-button:hover svg,
+html body .main-playPauseButton-playPauseButton:hover svg,
+html body .main-playPauseButton-button:hover svg *,
+html body .main-playPauseButton-playPauseButton:hover svg *,
+html body .main-playPauseButton-button:hover path,
+html body .main-playPauseButton-playPauseButton:hover path {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+/* Black surface styling */
+
+/* Playlist, album, artist, and other main-page headers and their gradients. */
+.main-entityHeader-background,
+.main-entityHeader-backgroundColor,
+.main-entityHeader-overlay,
+.main-entityHeader-gradient,
+.main-entityHeader-container,
+.main-actionBarBackground-background,
+.main-actionBar-ActionBar {
+    background: #000000 !important;
+}
+
+/* Home page filter/tab strip and its fading edge. */
+.main-home-homeHeader,
+.main-home-filterChipsSection,
+.main-home-filterChipsContainer,
+.main-home-filterChipsSection::after,
+.main-home-filterChipsContainer::after {
+    background: #000000 !important;
+}
+
+/* Right-hand Now Playing pane behind cover art and its detail sections. */
+.Root__right-sidebar,
+.main-nowPlayingView-nowPlayingView,
+.main-nowPlayingView-nowPlayingWidgets,
+.main-nowPlayingView-section,
+.main-nowPlayingView-coverArtContainer {
+    background: #000000 !important;
+}
+
+/* Top search bubble: surface only; retain scheme-colored text and icons. */
+.main-globalNav-searchContainer,
+.main-globalNav-searchInputContainer,
+.main-globalNav-searchInputWrapper,
+.main-globalNav-searchInputSection,
+.main-globalNav-searchInputContainer input,
+.main-globalNav-searchSection input,
+input[data-testid="search-input"] {
+    background: #000000 !important;
+}
+
+/* Playback/waveform seekbar backdrop, intentionally scoped away from volume. */
+.Root__now-playing-bar .playback-bar,
+.main-nowPlayingBar-nowPlayingBar .playback-bar,
+.Root__now-playing-bar .playback-bar .progress-bar,
+.main-nowPlayingBar-nowPlayingBar .playback-bar .progress-bar,
+.playback-bar .playback-progressbar,
+.playback-bar .playback-progressbar__bg,
+.playback-bar .main-progressBar-progressBarBackground,
+.playback-bar .x-progressBar-progressBarBg {
+    background: #000000 !important;
+}
+
+/* Preserve the scheme-colored played progress; do not recolor the volume slider. */
+.playback-bar .playback-progressbar__fg,
+.playback-bar .main-progressBar-progressBarForeground {
+    background: var(--spice-button-active) !important;
+}
+
+/* Library and content backgrounds */
+
+/* Library list: explicitly keep its background black. */
+#Desktop_LeftSidebar_Id .main-yourLibraryX-libraryRootlist,
+.main-yourLibraryX-libraryRootlist {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+/* Library navigation/content layers: keep their backgrounds black. */
+#Desktop_LeftSidebar_Id .main-yourLibraryX-libraryContainer,
+#Desktop_LeftSidebar_Id .main-yourLibraryX-navItems,
+.main-yourLibraryX-libraryContainer,
+.main-yourLibraryX-navItems {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+/* Central content backgrounds */
+#main-view .main-view-container,
+#main-view .main-view-container__scroll-node,
+#main-view .main-view-container__scroll-node-child,
+#main-view section[data-testid="home-page"],
+#main-view section[data-testid="home-page"] > .contentSpacing,
+#main-view .playlist-playlist-playlistContent > .contentSpacing,
+#main-view .contentSpacing:has(> .main-trackList-trackListContainer) {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+/* Scheme-tinted search input */
+#global-nav-bar input[data-top-bar-search="true"],
+input[data-top-bar-search="true"] {
+    background-color: var(--spice-selected-row) !important;
+    background-image: none !important;
+}
+
+
+/* Shared layout and scrollbar surfaces */
+
+/* Root layout background */
+.Root__top-container {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+/* Bottom Now Playing dock background */
+aside[data-testid="now-playing-bar"],
+.main-nowPlayingBar-container {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+
+/* Native scrollbar fallback */
+:root {
+    scrollbar-color: var(--scrollbar-thumb) #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+}
+
+
+/* Transparent sticky headers */
+
+/* Home sticky header surfaces */
+#main-view .main-home-homeHeader,
+#main-view .main-home-filterChipsSection,
+#main-view .main-home-filterChipsContainer,
+#main-view .main-home-filterChipsSection::after,
+#main-view .main-home-filterChipsContainer::after,
+#main-view .jTuahgNncRCCfJfiJwQi {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Home header blur follows Spotify's native opacity fade. */
+#main-view .jTuahgNncRCCfJfiJwQi > :first-child {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    --background-base: transparent !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    backdrop-filter: blur(24px) !important;
+}
+
+/* Keep header surfaces transparent; do not move the scrolling track content. */
+#main-view {
+    z-index: 1 !important;
+}
+
+/* Upper header: 88px total, with 24px bottom padding. */
+#main-view > header[data-testid="topbar"] {
+    box-sizing: border-box !important;
+    height: 88px !important;
+    padding-bottom: 24px !important;
+    contain: none !important;
+    z-index: auto !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Strip any opaque topbar overlays while preserving foreground content. */
+#main-view > header[data-testid="topbar"] .main-topBar-background,
+#main-view > header[data-testid="topbar"] .main-topBar-overlay {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Upper header: 24px blur and 22px bottom feather. */
+#main-view > header[data-testid="topbar"] > div[style*="--background-base"] {
+    height: 100% !important;
+    z-index: 5 !important;
+    --background-base: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-mask-image: linear-gradient(to bottom, black 0, black calc(100% - 22px), transparent 100%) !important;
+    mask-image: linear-gradient(to bottom, black 0, black calc(100% - 22px), transparent 100%) !important;
+}
+
+#main-view > header[data-testid="topbar"] > div[style*="--background-base"] > div {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* The header's title and playback controls remain ABOVE both blur surfaces. */
+#main-view > header[data-testid="topbar"] > .contentSpacing {
+    position: relative !important;
+    z-index: 20 !important;
+}
+
+/* Column header: 61px total, extended 24px upward. */
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"]) {
+    box-sizing: border-box !important;
+    height: 61px !important;
+    margin-top: -24px !important;
+    padding-top: 24px !important;
+    top: 40px !important;
+    z-index: 10 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Column header blur: 24px blur with 22px top feather. */
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -1;
+    pointer-events: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 22px) !important;
+    mask-image: linear-gradient(to bottom, transparent 0, black 22px) !important;
+}
+
+/* Sticky column blur fade with native sticky-class fallback. */
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+    opacity: 0;
+    transition: opacity 200ms linear;
+}
+
+.main-view-container__scroll-node-child
+[data-scroll-size-invariant-class][role="presentation"].iPo4a2lbrsxW9Iedav3h:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+    opacity: 1;
+}
+
+@keyframes downpour-black-lower-sticky-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Scroll-linked column blur fade over 40px. */
+@supports (view-timeline-inset: 0px calc(100% - 103px)) and (animation-timeline: --downpour-black-lower-sticky) {
+    .main-view-container__scroll-node-child
+    [role="grid"]:has(> [data-scroll-size-invariant-class][role="presentation"] > [role="presentation"] > [role="row"] > [role="columnheader"]) {
+        view-timeline-name: --downpour-black-lower-sticky;
+        view-timeline-axis: block;
+        view-timeline-inset: 0px calc(100% - 103px);
+    }
+
+    .main-view-container__scroll-node-child
+    [data-scroll-size-invariant-class][role="presentation"]:has(> [role="presentation"] > [role="row"] > [role="columnheader"])::before {
+        animation: downpour-black-lower-sticky-fade 1s linear both !important;
+        animation-timeline: --downpour-black-lower-sticky !important;
+        animation-range: cover 0px cover 40px !important;
+        transition: none !important;
+    }
+}
+
+/* Preserve foreground stacking and smooth scrolling. */
+.main-view-container__scroll-node > :has(> .main-view-container__scroll-node-child) {
+    z-index: auto !important;
+    will-change: scroll-position !important;
+}
+
+.main-view-container__scroll-node-child {
+    isolation: auto !important;
+}
+
+/* Avoid nesting :has() selectors. */
+.main-view-container__scroll-node-child > main > section:has(
+    [data-scroll-size-invariant-class][role="presentation"] > [role="presentation"] > [role="row"] > [role="columnheader"]
+) > div {
+    isolation: auto !important;
+}
+
+/* Native banner visibility: playlists, albums, podcasts, artists */
+
+/* Reveal the lower native gradient behind transparent scroll surfaces. */
+#main-view:has(.hbNOZbHD3bPL3OcHQWNn):has(.r8bczAWCEgb9_L0iyIcc)
+  :is(.main-view-container,
+      .main-view-container__scroll-node,
+      .main-view-container__scroll-node-child,
+      .t_mbBtGZ5QtvpsVNOtOj) {
+    background-color: transparent !important;
+}
+
+/* Luminance mask: black hides the banner; white reveals it. */
+#main-view:has(.hbNOZbHD3bPL3OcHQWNn):has(.r8bczAWCEgb9_L0iyIcc)
+  :is(.hbNOZbHD3bPL3OcHQWNn, .r8bczAWCEgb9_L0iyIcc) {
+    -webkit-mask-image: linear-gradient(
+        var(--spice-banner-visibility, #FFFFFF),
+        var(--spice-banner-visibility, #FFFFFF)
+    ) !important;
+    mask-image: linear-gradient(
+        var(--spice-banner-visibility, #FFFFFF),
+        var(--spice-banner-visibility, #FFFFFF)
+    ) !important;
+    mask-mode: luminance !important;
+}
+
+/* Liked Songs banner visibility */
+
+/* Reveal the Liked Songs lower gradient. */
+#main-view:has(main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG):has(.IfBZ5VdI_2nwDMl4H6Yh)
+  :is(.main-view-container,
+      .main-view-container__scroll-node,
+      .main-view-container__scroll-node-child) {
+    background-color: transparent !important;
+}
+
+/* Mask banner backgrounds without masking page content. */
+#main-view:has(main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG):has(.IfBZ5VdI_2nwDMl4H6Yh)
+  :is(
+    main[aria-label*="Liked Songs"] [data-testid="entity-header"] > .uP1rcUSIWCFaOZaoH0ZG,
+    .IfBZ5VdI_2nwDMl4H6Yh
+  ) {
+    -webkit-mask-image: linear-gradient(
+        var(--spice-banner-visibility, #FFFFFF),
+        var(--spice-banner-visibility, #FFFFFF)
+    ) !important;
+    mask-image: linear-gradient(
+        var(--spice-banner-visibility, #FFFFFF),
+        var(--spice-banner-visibility, #FFFFFF)
+    ) !important;
+    mask-mode: luminance !important;
+}
