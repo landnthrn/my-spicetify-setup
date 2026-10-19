@@ -12,10 +12,8 @@
 
 This is my personal Spicetify setup, for those that want a great starting point to build on, or skip configuring and simply acquire what I consider to be a proper collection and configuration of Spicetify. 
 
-
-I've purposely left out parts that I felt were too opinionated for the common person.  
-
-Also includes **[downpour-black](./themes-by-me/downpour-black/)** a theme I made using **[Spotify-Dark](https://github.com/SyndiShanX/Spotify-Dark)** as a starting point.
+- I've purposely left out parts that I felt were too opinionated for the common person.  
+- Also includes **[downpour-black](./themes-by-me/downpour-black/)** a theme I made using **[Spotify-Dark](https://github.com/SyndiShanX/Spotify-Dark)** as a starting point.
 
 ---
 
