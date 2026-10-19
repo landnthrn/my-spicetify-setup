@@ -1,9 +1,21 @@
+**Theme Preview: 'StarryNight'** *(modified + 'downpurp' color scheme)*
+<img width="1280" height="460" alt="starrynight-downpurp-preview" src="https://github.com/user-attachments/assets/46c2a4e2-3856-47d8-b5b8-6ee1c06313c0" />
 
-![Modified StarryNight PREVIEW](https://github.com/user-attachments/assets/3c9c4c33-d704-45e3-803e-3aaff9734bf5)
+
+**Theme Preview: 'downpour-black'**
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/370cbdc3-612d-4c5f-bf9a-1a80a7bbe478" alt="violet" width="49%" />
+  <img src="https://github.com/user-attachments/assets/84c9572a-57fa-405a-8986-f12f002b2f6f" alt="red" width="49%" />
+  <img src="https://github.com/user-attachments/assets/52179ed7-4d89-4309-bcf3-1d33921e63cb" alt="minty-green" width="49%" />
+  <img src="https://github.com/user-attachments/assets/a78de12c-95fc-4f55-807e-fa11cc76e4b1" alt="electric-blue" width="49%" />
+</p>
 
 This is my personal Spicetify setup, for those that want a great starting point to build on, or skip configuring and simply acquire what I consider to be a proper collection and configuration of Spicetify. 
+
+
 I've purposely left out parts that I felt were too opinionated for the common person.  
-Also includes "downpour-black" a theme I made using **[Spotify-Dark](https://github.com/SyndiShanX/Spotify-Dark)** as a starting point.
+
+Also includes **[downpour-black](./themes-by-me/downpour-black/)** a theme I made using **[Spotify-Dark](https://github.com/SyndiShanX/Spotify-Dark)** as a starting point.
 
 ---
 
@@ -27,11 +39,14 @@ iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-cli/main/install
 ```
 3. Use `y` when prompted to install the marketplace
 
-For more info, see their official page: **[Spicetify Installation Guide + Info](https://spicetify.app/docs/advanced-usage/installation**)
+- After the initial patch of Spotify/`spicetify apply` you may need to exit & reload Spotify for it to refresh properly.
+- For more info, see their official page: **[Spicetify Installation Guide + Info](https://spicetify.app/docs/advanced-usage/installation)**
 
 ---
 
 ### Apply My Marketplace Settings
+
+- The add-ons amoung my marketplace exports are **[listed below](#credits)**
 
 1. Select the gear icon Spicetify Marketplace
 2. Backup/restore > open > import from file *(If you already have a marketplace setup of your own, export it first so it isn't lost.)*
